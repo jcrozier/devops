@@ -9,16 +9,16 @@
  **/
 def call(Map params) {
 
-	def jobBuildStatus = params.jobBuildStatus ?: ""
-	def jobName = params.jobName ?: ""
-	def jobBuildNumber = params.jobBuildNumber ?: ""
-	def jobBuildNumber = params.jobBuildNumber ?: ""
+	def ajobBuildStatus = params.jobBuildStatus ?: ""
+	def ajobName = params.jobName ?: ""
+	def ajobBuildNumber = params.jobBuildNumber ?: ""
+	def ajobBuildNumber = params.jobBuildNumber ?: ""
 	def devEmail = params.devEmail ?: ""
 
 	emailext (
-		subject: "${jobBuildStatus}: Build ${jobBuildStatus} - Job '${jobName} [${jobBuildNumber}]'",
-		body: """<p>${jobBuildStatus}: Build ${jobBuildStatus} - Job '${jobName} [${jobBuildNumber}]':</p>
-	    	<p>Check console output at &QUOT;<a href='${jobBuildNumber}'>${jobName} [${jobBuildNumber}]</a>&QUOT;</p>""",
+		subject: "${ajobBuildStatus}: Build ${ajobBuildStatus} - Job '${ajobName} [${ajobBuildNumber}]'",
+		body: """<p>${ajobBuildStatus}: Build ${ajobBuildStatus} - Job '${ajobName} [${ajobBuildNumber}]':</p>
+	    	<p>Check console output at &QUOT;<a href='${ajobBuildNumber}'>${ajobName} [${ajobBuildNumber}]</a>&QUOT;</p>""",
 	 	recipientProviders: [[$class: '${devEmail}']]
 	)
 }
