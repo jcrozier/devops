@@ -8,5 +8,7 @@
  **/
 def call(Map params) {
 
+	def deploymentType = params.deploymentType ?: ""
+
 	bat 'mvn wildfly:${deploymentType} -P ' + params.jbossEnvironment
 }
