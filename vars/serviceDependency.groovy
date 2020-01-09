@@ -8,7 +8,6 @@
  **/
 def call(Map params) {
 
-	echo "${version}"
-	sh 'mvn  -DgenerateBackupPoms=false -U versions:${version} -Dincludes=ie.bil.lifeandpensions:domain'
-	sh 'mvn  -DgenerateBackupPoms=false -U versions:${version} -Dincludes=ie.bil.lifeandpensions:service-providers'
+	sh "mvn  -DgenerateBackupPoms=false -U versions:${version} -Dincludes=ie.bil.lifeandpensions:domain"
+	sh "mvn  -DgenerateBackupPoms=false -U versions:${version} -Dincludes=ie.bil.lifeandpensions:service-providers"
 }
