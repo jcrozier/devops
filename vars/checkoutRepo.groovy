@@ -22,7 +22,6 @@ def call(Map params) {
       [
         name: params.branch
       ]
-    ],
-    extensions: extensions
+    ]
   ]
 }
