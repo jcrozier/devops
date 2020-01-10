@@ -11,11 +11,12 @@ def call(Map params) {
     def odcInstallation = params.odcInstallation ?: ""
 	def pattern = params.pattern ?: ""
 
-    dependencyCheck additionalArguments: ''' 
+    dependencyCheck additionalArguments: """ 
         -o "./" 
         -s "./"
         -f "ALL" 
-        --prettyPrint''', odcInstallation: '${odcInstallation}'
+        --prettyPrint""", odcInstallation: "${odcInstallation}"
 
-    dependencyCheckPublisher pattern: '${pattern}'
+    dependencyCheckPublisher pattern: "${pattern}"
+
 }
