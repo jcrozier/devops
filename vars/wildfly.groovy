@@ -11,8 +11,8 @@ def call(Map params) {
 	def deploymentType = params.deploymentType ?: ""
 
 	if (isUnix()) {
-    		sh 'mvn wildfly:${deploymentType} -P ' + params.jbossEnvironment
+    		sh "mvn wildfly:${deploymentType} -P " + params.jbossEnvironment
 	} else {
-    		bat 'mvn wildfly:${deploymentType} -P ' + params.jbossEnvironment
+    		bat "mvn wildfly:${deploymentType} -P " + params.jbossEnvironment
 	}
 }
