@@ -8,12 +8,14 @@
  **/
 def call(Map params) {
 
-    	def dataDir = params.dataDir ?: ""
-	def autoUpdate = params.autoUpdate ?: ""
-	def projectname = params.projectname ?: ""
-	//sh 'mvn org.owasp:dependency-check-maven:check -Dformat=XML -DdataDirectory=${dataDir} -DautoUpdate=${autoUpdate}'
-	//	      step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
+    def odcInstallation = params.odcInstallation ?: ""
+	def pattern = params.pattern ?: ""
 
-	dependencycheck additionalArguments: "--project ${projectname} --scan ./ --data /home/jenkins/security/owasp-nvd/ --out dependency-check-report.xml --format XML", odcInstallation: "DependencyCheck"
+    dependencyCheck additionalArguments: ''' 
+        -o "./" 
+        -s "./"
+        -f "ALL" 
+        --prettyPrint''', odcInstallation: '${odcInstallation}'
+
+    dependencyCheckPublisher pattern: '${pattern}'
 }
-
