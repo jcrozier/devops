@@ -22,6 +22,12 @@ def call(Map params) {
       [
         name: params.branch
       ]
+    ],
+    extensions: [
+      [
+        $class: 'LocalBranch', 
+        localBranch: params.branch
+      ]
     ]
   ]
 }
